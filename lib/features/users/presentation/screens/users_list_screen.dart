@@ -57,12 +57,19 @@ class _UsersListScreenState extends ConsumerState<UsersListScreen> {
         title: const Text('Users'),
         actions: [
           IconButton(
+            icon: const Icon(Icons.chat),
+            onPressed: () => context.go('/chats'),
+            tooltip: 'Chats',
+          ),
+          IconButton(
             icon: const Icon(Icons.person),
             onPressed: () => context.go('/profile'),
+            tooltip: 'Profile',
           ),
           IconButton(
             icon: const Icon(Icons.logout),
             onPressed: _handleSignOut,
+            tooltip: 'Sign Out',
           ),
         ],
       ),

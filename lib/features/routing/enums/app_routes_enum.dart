@@ -13,7 +13,9 @@ enum PublicRoute {
 enum PrivateRoute {
   home('/'),
 
-  profile('/profile');
+  profile('/profile'),
+  chats('/chats'),
+  chat('/chats/:chatId');
 
   const PrivateRoute([this.path = '']);
   final String path;

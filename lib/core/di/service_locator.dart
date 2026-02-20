@@ -4,6 +4,10 @@ import '../../features/auth/data/interfaces/auth_api_interface.dart';
 import '../../features/auth/data/resources/auth_api_impl.dart';
 import '../../features/auth/data/resources/auth_repository_impl.dart';
 import '../../features/auth/domain/repositories/auth_repository.dart';
+import '../../features/chat/data/interfaces/chat_api_interface.dart';
+import '../../features/chat/data/resources/chat_api_mock_impl.dart';
+import '../../features/chat/data/repositories/chat_repository_impl.dart';
+import '../../features/chat/domain/repositories/chat_repository_interface.dart';
 import '../services/api_service.dart';
 import '../services/auth_service.dart';
 import '../services/storage_service.dart';
@@ -36,5 +40,13 @@ Future<void> setupServiceLocator() async {
       getIt<StorageService>(),
       getIt<AuthService>(),
     ),
+  );
+
+  getIt.registerSingleton<ChatApiInterface>(
+    ChatApiMockImpl(),
+  );
+
+  getIt.registerSingleton<ChatRepository>(
+    ChatRepositoryImpl(getIt<ChatApiInterface>()),
   );
 }
