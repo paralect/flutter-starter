@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ship_flutter_starter/core/utils/error_handler.dart';
-import 'package:ship_flutter_starter/features/auth/presentation/providers/auth_state_provider.dart';
 import 'package:ship_flutter_starter/features/auth/presentation/providers/sign_out_provider.dart';
 import 'package:ship_flutter_starter/features/users/presentation/providers/users_list_provider.dart';
 import 'package:ship_flutter_starter/features/users/presentation/widgets/user_list_item.dart';
@@ -47,7 +46,6 @@ class _UsersListScreenState extends ConsumerState<UsersListScreen> {
 
   Future<void> _handleSignOut() async {
     await ref.read(signOutProvider.notifier).signOut();
-    ref.invalidate(authStateProvider);
   }
 
   @override

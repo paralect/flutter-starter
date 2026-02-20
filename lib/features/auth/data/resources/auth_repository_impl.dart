@@ -37,7 +37,7 @@ class AuthRepositoryImpl implements AuthRepository {
   ) async {
     final response = await _api.signUp(email, password, firstName, lastName);
     final data = response.data as Map<String, dynamic>;
-    final userModel = UserModel.fromJson(data);
+    final userModel = UserModel.fromJson(data['user'] as Map<String, dynamic>);
     final token = _extractToken(data);
     if (token != null) {
       await _storageService.saveToken(token);
@@ -53,12 +53,14 @@ class AuthRepositoryImpl implements AuthRepository {
         throw Exception('Google sign in cancelled');
       }
 
-      final response = await _api.signInWithGoogle(
-        googleAuth.idToken ?? '',
-        googleAuth.accessToken ?? '',
-      );
+      final idToken = googleAuth.idToken;
+      if (idToken == null) {
+        throw Exception('Google ID token is missing');
+      }
+
+      final response = await _api.signInWithGoogle(idToken);
       final data = response.data as Map<String, dynamic>;
-      final userModel = UserModel.fromJson(data);
+      final userModel = UserModel.fromJson(data['user'] as Map<String, dynamic>);
       final token = _extractToken(data);
       if (token != null) {
         await _storageService.saveToken(token);

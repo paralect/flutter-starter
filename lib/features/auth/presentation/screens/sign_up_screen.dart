@@ -5,6 +5,7 @@ import 'package:ship_flutter_starter/core/extensions/context_extensions.dart';
 import 'package:ship_flutter_starter/core/utils/error_handler.dart';
 import 'package:ship_flutter_starter/core/validators/email_validator.dart';
 import 'package:ship_flutter_starter/core/validators/password_validator.dart';
+import 'package:ship_flutter_starter/features/auth/presentation/providers/account_provider.dart';
 import 'package:ship_flutter_starter/features/auth/presentation/providers/sign_up_provider.dart';
 import 'package:ship_flutter_starter/features/auth/presentation/widgets/auth_text_field.dart';
 import 'package:ship_flutter_starter/features/auth/presentation/widgets/auth_button.dart';
@@ -54,7 +55,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
     signUpState.when(
       data: (user) {
         if (user != null) {
-          context.go('/');
+          ref.invalidate(accountProvider);
         }
       },
       loading: () {},

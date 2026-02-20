@@ -6,12 +6,10 @@ part 'sign_in_request.g.dart';
 class SignInRequest {
   final String email;
   final String password;
-  final bool isMobile;
 
   SignInRequest({
     required this.email,
     required this.password,
-    this.isMobile = true,
   });
 
   factory SignInRequest.fromJson(Map<String, dynamic> json) =>

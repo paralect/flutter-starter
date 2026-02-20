@@ -16,7 +16,6 @@ class AuthApiImpl implements AuthApiInterface {
     final request = SignInRequest(
       email: email,
       password: password,
-      isMobile: true,
     );
     return _apiService.post(
       ApiConstants.accountSignIn,
@@ -44,12 +43,11 @@ class AuthApiImpl implements AuthApiInterface {
   }
 
   @override
-  Future<Response> signInWithGoogle(String idToken, String accessToken) async {
+  Future<Response> signInWithGoogle(String idToken) async {
     return _apiService.post(
-      ApiConstants.accountGoogle,
+      ApiConstants.accountGoogleMobile,
       data: {
         'idToken': idToken,
-        'accessToken': accessToken,
       },
     );
   }

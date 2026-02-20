@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:ship_flutter_starter/features/auth/presentation/providers/auth_state_provider.dart';
+import 'package:ship_flutter_starter/features/auth/presentation/providers/account_provider.dart';
 import 'package:ship_flutter_starter/features/routing/enums/app_routes_enum.dart';
 import 'package:ship_flutter_starter/features/routing/routes/public_routes.dart';
 import 'package:ship_flutter_starter/features/routing/routes/private_routes.dart';
@@ -13,7 +13,7 @@ final navigatorKey = GlobalKey<NavigatorState>();
 
 @riverpod
 GoRouter appRouter(Ref ref) {
-  final authState = ref.watch(authStateProvider);
+  final accountAsync = ref.watch(accountProvider);
 
   return GoRouter(
     navigatorKey: navigatorKey,
@@ -25,8 +25,10 @@ GoRouter appRouter(Ref ref) {
           state.matchedLocation.startsWith('/${PublicRoute.signup.path}');
       final isPublicRoute = isLoggingIn || isSigningUp;
 
-      return authState.when(
-        data: (isSignedIn) {
+      return accountAsync.when(
+        data: (account) {
+          final isSignedIn = account != null;
+          
           if (!isSignedIn && !isPublicRoute) {
             return '/${PublicRoute.signin.path}';
           }

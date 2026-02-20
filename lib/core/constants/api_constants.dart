@@ -9,5 +9,6 @@ class ApiConstants {
   static const String accountSignOut = '/account/sign-out';
   static const String account = '/account';
   static const String accountGoogle = '/account/sign-in/google';
+  static const String accountGoogleMobile = '/account/sign-in/google-mobile';
   static const String users = '/users';
 }

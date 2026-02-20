@@ -1,4 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'account_provider.dart';
 import 'auth_providers.dart';
 
 part 'sign_out_provider.g.dart';
@@ -13,6 +14,7 @@ class SignOut extends _$SignOut {
     state = await AsyncValue.guard(() async {
       final useCase = ref.read(signOutUseCaseProvider);
       await useCase();
+      ref.invalidate(accountProvider);
     });
   }
 }

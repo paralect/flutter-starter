@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ship_flutter_starter/core/extensions/context_extensions.dart';
 import 'package:ship_flutter_starter/core/utils/error_handler.dart';
-import 'package:ship_flutter_starter/features/auth/presentation/providers/auth_state_provider.dart';
 import 'package:ship_flutter_starter/features/auth/presentation/providers/sign_out_provider.dart';
 import 'package:ship_flutter_starter/features/profile/presentation/providers/profile_provider.dart';
 
@@ -67,7 +66,6 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
 
   Future<void> _handleSignOut() async {
     await ref.read(signOutProvider.notifier).signOut();
-    ref.invalidate(authStateProvider);
   }
 
   @override

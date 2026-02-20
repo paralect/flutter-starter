@@ -5,7 +5,7 @@ import 'package:ship_flutter_starter/core/extensions/context_extensions.dart';
 import 'package:ship_flutter_starter/core/utils/error_handler.dart';
 import 'package:ship_flutter_starter/core/validators/email_validator.dart';
 import 'package:ship_flutter_starter/core/validators/password_validator.dart';
-import 'package:ship_flutter_starter/features/auth/presentation/providers/auth_state_provider.dart';
+import 'package:ship_flutter_starter/features/auth/presentation/providers/account_provider.dart';
 import 'package:ship_flutter_starter/features/auth/presentation/providers/sign_in_provider.dart';
 import 'package:ship_flutter_starter/features/auth/presentation/providers/google_sign_in_provider.dart';
 import 'package:ship_flutter_starter/features/auth/presentation/widgets/auth_text_field.dart';
@@ -42,7 +42,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
     signInState.when(
       data: (user) {
         if (user != null) {
-          ref.invalidate(authStateProvider);
+          ref.invalidate(accountProvider);
         }
       },
       loading: () {},
@@ -61,7 +61,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
     googleSignInState.when(
       data: (user) {
         if (user != null) {
-          ref.invalidate(authStateProvider);
+          ref.invalidate(accountProvider);
         }
       },
       loading: () {},
