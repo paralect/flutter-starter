@@ -44,7 +44,7 @@ GoRouter appRouter(Ref ref) {
       );
     },
     routes: [
-      publicRoutes,
+      ...publicRoutes,
       privateRoutes,
     ],
   );

@@ -116,7 +116,7 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                   child: shadcn.GhostButton(
                     onPressed: isLoading
                         ? null
-                        : () => context.go('/forgot-password'),
+                        : () => context.push('/sign-in/forgot-password'),
                     child: const Text('Forgot Password?'),
                   ),
                 ),

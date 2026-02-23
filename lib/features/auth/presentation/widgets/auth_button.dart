@@ -31,7 +31,7 @@ class AuthButton extends StatelessWidget {
               width: 20,
               child: shadcn.CircularProgressIndicator(size: 20, strokeWidth: 2),
             )
-          : Text(text),
+          : Text(text, textAlign: TextAlign.center),
     );
   }
 }
