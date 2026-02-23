@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:shadcn_flutter/shadcn_flutter.dart' as shadcn;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ship_flutter_starter/core/extensions/context_extensions.dart';
 import 'package:ship_flutter_starter/core/utils/error_handler.dart';
@@ -77,7 +78,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
         title: const Text('Profile'),
         actions: [
           if (_isEditing)
-            TextButton(
+            shadcn.GhostButton(
               onPressed: () {
                 setState(() {
                   _isEditing = false;
@@ -92,7 +93,7 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
               child: const Text('Cancel'),
             )
           else
-            IconButton(
+            shadcn.IconButton.ghost(
               icon: const Icon(Icons.edit),
               onPressed: () {
                 setState(() {
@@ -136,23 +137,18 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                 ),
                 const SizedBox(height: 24),
                 if (_isEditing) ...[
-                  TextField(
+                  shadcn.TextField(
                     controller: _firstNameController,
-                    decoration: const InputDecoration(
-                      labelText: 'First Name',
-                      border: OutlineInputBorder(),
-                    ),
+                    placeholder: const Text('First Name'),
                   ),
                   const SizedBox(height: 16),
-                  TextField(
+                  shadcn.TextField(
                     controller: _lastNameController,
-                    decoration: const InputDecoration(
-                      labelText: 'Last Name',
-                      border: OutlineInputBorder(),
-                    ),
+                    placeholder: const Text('Last Name'),
                   ),
                   const SizedBox(height: 24),
-                  ElevatedButton(
+                  shadcn.Button(
+                    style: shadcn.ButtonStyle.primary(),
                     onPressed: _handleUpdate,
                     child: const Text('Save'),
                   ),
@@ -175,21 +171,17 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
                     subtitle: Text(user.isEmailVerified ? 'Yes' : 'No'),
                   ),
                   const SizedBox(height: 24),
-                  ElevatedButton.icon(
+                  shadcn.Button.destructive(
                     onPressed: _handleSignOut,
-                    icon: const Icon(Icons.logout),
-                    label: const Text('Sign Out'),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Theme.of(context).colorScheme.error,
-                      foregroundColor: Theme.of(context).colorScheme.onError,
-                    ),
+                    leading: const Icon(Icons.logout),
+                    child: const Text('Sign Out'),
                   ),
                 ],
               ],
             ),
           );
         },
-        loading: () => const Center(child: CircularProgressIndicator()),
+        loading: () => Center(child: shadcn.CircularProgressIndicator()),
         error: (error, stack) {
           final isUnauthorized =
               error is DioException && error.response?.statusCode == 401;
@@ -205,7 +197,8 @@ class _ProfileScreenState extends ConsumerState<ProfileScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text('Error loading profile'),
-                ElevatedButton(
+                shadcn.Button(
+                  style: shadcn.ButtonStyle.primary(),
                   onPressed: () {
                     ref.read(profileProvider.notifier).loadProfile();
                   },

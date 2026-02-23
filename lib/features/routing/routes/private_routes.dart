@@ -1,9 +1,9 @@
 import 'package:go_router/go_router.dart';
-import '../../users/presentation/screens/users_list_screen.dart';
-import '../../profile/presentation/screens/profile_screen.dart';
-import '../../chat/presentation/screens/chats_list_screen.dart';
-import '../../chat/presentation/screens/chat_screen.dart';
-import '../enums/app_routes_enum.dart';
+import 'package:ship_flutter_starter/features/users/presentation/screens/users_list_screen.dart';
+import 'package:ship_flutter_starter/features/profile/presentation/screens/profile_screen.dart';
+import 'package:ship_flutter_starter/features/chat/presentation/screens/chats_list_screen.dart';
+import 'package:ship_flutter_starter/features/chat/presentation/screens/chat_screen.dart';
+import 'package:ship_flutter_starter/features/routing/enums/app_routes_enum.dart';
 
 RouteBase privateRoutes = GoRoute(
   path: PrivateRoute.home.path,

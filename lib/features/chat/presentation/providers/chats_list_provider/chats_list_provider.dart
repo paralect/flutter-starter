@@ -1,7 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../../../domain/entities/chat_entity.dart';
-import '../../../data/models/create_chat_request/create_chat_request.dart';
-import '../chat_providers/chat_providers.dart';
+import 'package:ship_flutter_starter/features/chat/domain/entities/chat_entity.dart';
+import 'package:ship_flutter_starter/features/chat/data/models/create_chat_request/create_chat_request.dart';
+import 'package:ship_flutter_starter/features/chat/presentation/providers/chat_providers/chat_providers.dart';
 
 part 'chats_list_provider.g.dart';
 

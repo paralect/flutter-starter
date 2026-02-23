@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../../domain/entities/chat_entity.dart';
+import 'package:ship_flutter_starter/features/chat/domain/entities/chat_entity.dart';
 
 class ChatListItem extends StatelessWidget {
   final ChatEntity chat;

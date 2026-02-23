@@ -1,4 +1,4 @@
-import '../entities/user_entity.dart';
+import 'package:ship_flutter_starter/features/users/domain/entities/user_entity.dart';
 
 class UsersListParams {
   final int page;

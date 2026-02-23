@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shadcn_flutter/shadcn_flutter.dart' as shadcn;
 
 class UsersListFilters extends StatelessWidget {
   final TextEditingController searchController;
@@ -14,24 +15,14 @@ class UsersListFilters extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16),
-      child: TextField(
+      child: shadcn.TextField(
         controller: searchController,
-        decoration: InputDecoration(
-          labelText: 'Search users',
-          hintText: 'Enter name or email',
-          prefixIcon: const Icon(Icons.search),
-          suffixIcon: searchController.text.isNotEmpty
-              ? IconButton(
-                  icon: const Icon(Icons.clear),
-                  onPressed: () {
-                    searchController.clear();
-                    onSearch();
-                  },
-                )
-              : null,
-          border: const OutlineInputBorder(),
-        ),
+        placeholder: const Text('Search users - Enter name or email'),
         onSubmitted: (_) => onSearch(),
+        features: [
+          shadcn.InputLeadingFeature(Icon(Icons.search)),
+          shadcn.InputClearFeature(),
+        ],
       ),
     );
   }

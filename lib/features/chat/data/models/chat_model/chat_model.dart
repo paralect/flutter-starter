@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import '../../../domain/entities/chat_entity.dart';
+import 'package:ship_flutter_starter/features/chat/domain/entities/chat_entity.dart';
 
 part 'chat_model.g.dart';
 

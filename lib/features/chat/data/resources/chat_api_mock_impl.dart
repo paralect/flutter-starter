@@ -1,9 +1,9 @@
 import 'dart:async';
-import '../interfaces/chat_api_interface.dart';
-import '../models/chat_model/chat_model.dart';
-import '../models/message_model/message_model.dart';
-import '../models/create_chat_request/create_chat_request.dart';
-import '../models/send_message_request/send_message_request.dart';
+import 'package:ship_flutter_starter/features/chat/data/interfaces/chat_api_interface.dart';
+import 'package:ship_flutter_starter/features/chat/data/models/chat_model/chat_model.dart';
+import 'package:ship_flutter_starter/features/chat/data/models/message_model/message_model.dart';
+import 'package:ship_flutter_starter/features/chat/data/models/create_chat_request/create_chat_request.dart';
+import 'package:ship_flutter_starter/features/chat/data/models/send_message_request/send_message_request.dart';
 
 class ChatApiMockImpl implements ChatApiInterface {
   final List<ChatModel> _mockChats = [];

@@ -1,8 +1,8 @@
-import '../../../../core/constants/api_constants.dart';
-import '../../../../core/services/api_service.dart';
-import '../interfaces/users_api_interface.dart';
-import '../models/users_list_response.dart';
-import '../../domain/repositories/users_repository.dart';
+import 'package:ship_flutter_starter/core/constants/api_constants.dart';
+import 'package:ship_flutter_starter/core/services/api_service.dart';
+import 'package:ship_flutter_starter/features/users/data/interfaces/users_api_interface.dart';
+import 'package:ship_flutter_starter/features/users/data/models/users_list_response.dart';
+import 'package:ship_flutter_starter/features/users/domain/repositories/users_repository.dart';
 
 class UsersApiImpl implements UsersApiInterface {
   final ApiService _apiService;

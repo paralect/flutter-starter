@@ -1,16 +1,16 @@
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../features/auth/data/interfaces/auth_api_interface.dart';
-import '../../features/auth/data/resources/auth_api_impl.dart';
-import '../../features/auth/data/resources/auth_repository_impl.dart';
-import '../../features/auth/domain/repositories/auth_repository.dart';
-import '../../features/chat/data/interfaces/chat_api_interface.dart';
-import '../../features/chat/data/resources/chat_api_mock_impl.dart';
-import '../../features/chat/data/repositories/chat_repository_impl.dart';
-import '../../features/chat/domain/repositories/chat_repository_interface.dart';
-import '../services/api_service.dart';
-import '../services/auth_service.dart';
-import '../services/storage_service.dart';
+import 'package:ship_flutter_starter/features/auth/data/interfaces/auth_api_interface.dart';
+import 'package:ship_flutter_starter/features/auth/data/resources/auth_api_impl.dart';
+import 'package:ship_flutter_starter/features/auth/data/resources/auth_repository_impl.dart';
+import 'package:ship_flutter_starter/features/auth/domain/repositories/auth_repository.dart';
+import 'package:ship_flutter_starter/features/chat/data/interfaces/chat_api_interface.dart';
+import 'package:ship_flutter_starter/features/chat/data/resources/chat_api_mock_impl.dart';
+import 'package:ship_flutter_starter/features/chat/data/repositories/chat_repository_impl.dart';
+import 'package:ship_flutter_starter/features/chat/domain/repositories/chat_repository_interface.dart';
+import 'package:ship_flutter_starter/core/services/api_service.dart';
+import 'package:ship_flutter_starter/core/services/auth_service.dart';
+import 'package:ship_flutter_starter/core/services/storage_service.dart';
 
 final getIt = GetIt.instance;
 

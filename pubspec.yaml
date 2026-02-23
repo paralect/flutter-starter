@@ -52,11 +52,11 @@ dependencies:
   iconsax_flutter: ^1.0.1
   flutter_svg: ^2.0.10+1
   vector_math: ^2.2.0
-  mix: ^1.7.0
   dio: ^5.4.0
   json_annotation: ^4.8.1
   google_sign_in: ^6.2.1
   flutter_dotenv: ^5.1.0
+  shadcn_flutter: ^0.0.51
 
 dev_dependencies:
   build_runner: ^2.4.12

@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:shadcn_flutter/shadcn_flutter.dart' as shadcn;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ship_flutter_starter/core/utils/error_handler.dart';
@@ -109,25 +110,26 @@ class _UsersListScreenState extends ConsumerState<UsersListScreen> {
                     },
                   );
                 },
-                loading: () => const Center(
-                  child: CircularProgressIndicator(),
+                loading: () => Center(
+                  child: shadcn.CircularProgressIndicator(),
                 ),
                 error: (error, stack) {
-                  final isUnauthorized = error is DioException && 
+                  final isUnauthorized = error is DioException &&
                       error.response?.statusCode == 401;
-                  
+
                   if (!isUnauthorized) {
                     WidgetsBinding.instance.addPostFrameCallback((_) {
                       ErrorHandler.handleError(context, error);
                     });
                   }
-                  
+
                   return Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Text('Error loading users'),
-                        ElevatedButton(
+                        shadcn.Button(
+                          style: shadcn.ButtonStyle.primary(),
                           onPressed: () {
                             ref.read(usersListProvider.notifier).refresh();
                           },

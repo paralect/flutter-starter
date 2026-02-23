@@ -1,4 +1,4 @@
-import '../../data/models/message_model/message_model.dart';
+import 'package:ship_flutter_starter/features/chat/data/models/message_model/message_model.dart';
 
 class MessageEntity {
   final String id;

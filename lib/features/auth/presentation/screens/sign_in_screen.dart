@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shadcn_flutter/shadcn_flutter.dart' as shadcn;
 import 'package:ship_flutter_starter/core/extensions/context_extensions.dart';
 import 'package:ship_flutter_starter/core/utils/error_handler.dart';
-import 'package:ship_flutter_starter/core/validators/email_validator.dart';
+import 'package:ship_flutter_starter/core/validators/email_validator.dart'
+    as app_validators;
 import 'package:ship_flutter_starter/core/validators/password_validator.dart';
 import 'package:ship_flutter_starter/features/auth/presentation/providers/account_provider.dart';
 import 'package:ship_flutter_starter/features/auth/presentation/providers/sign_in_provider.dart';
@@ -22,7 +24,6 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  bool _obscurePassword = true;
 
   @override
   void dispose() {
@@ -99,28 +100,25 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                   controller: _emailController,
                   label: 'Email',
                   keyboardType: TextInputType.emailAddress,
-                  validator: EmailValidator.validate,
+                  validator: app_validators.EmailValidator.validate,
                   enabled: !isLoading,
                 ),
                 const SizedBox(height: 16),
                 AuthTextField(
                   controller: _passwordController,
                   label: 'Password',
-                  obscureText: _obscurePassword,
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                      _obscurePassword
-                          ? Icons.visibility
-                          : Icons.visibility_off,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        _obscurePassword = !_obscurePassword;
-                      });
-                    },
-                  ),
+                  obscureText: true,
                   validator: PasswordValidator.validate,
                   enabled: !isLoading,
+                ),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: shadcn.GhostButton(
+                    onPressed: isLoading
+                        ? null
+                        : () => context.go('/forgot-password'),
+                    child: const Text('Forgot Password?'),
+                  ),
                 ),
                 const SizedBox(height: 24),
                 AuthButton(
@@ -136,23 +134,18 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                   isSecondary: true,
                 ),
                 const SizedBox(height: 24),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Text("Don't have an account? "),
-                    TextButton(
+                    const Text("Don't have an account?"),
+                    const SizedBox(height: 8),
+                    shadcn.GhostButton(
                       onPressed: isLoading
                           ? null
                           : () => context.go('/sign-up'),
                       child: const Text('Sign Up'),
                     ),
                   ],
-                ),
-                TextButton(
-                  onPressed: isLoading
-                      ? null
-                      : () => context.go('/forgot-password'),
-                  child: const Text('Forgot Password?'),
                 ),
               ],
             ),

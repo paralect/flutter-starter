@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../../../core/extensions/context_extensions.dart';
-import '../../../../core/validators/email_validator.dart';
-import '../widgets/auth_text_field.dart';
-import '../widgets/auth_button.dart';
+import 'package:ship_flutter_starter/core/extensions/context_extensions.dart';
+import 'package:ship_flutter_starter/core/validators/email_validator.dart';
+import 'package:ship_flutter_starter/features/auth/presentation/widgets/auth_text_field.dart';
+import 'package:ship_flutter_starter/features/auth/presentation/widgets/auth_button.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});

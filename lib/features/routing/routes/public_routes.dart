@@ -1,8 +1,8 @@
 import 'package:go_router/go_router.dart';
-import '../../auth/presentation/screens/forgot_password_screen.dart';
-import '../../auth/presentation/screens/sign_in_screen.dart';
-import '../../auth/presentation/screens/sign_up_screen.dart';
-import '../enums/app_routes_enum.dart';
+import 'package:ship_flutter_starter/features/auth/presentation/screens/forgot_password_screen.dart';
+import 'package:ship_flutter_starter/features/auth/presentation/screens/sign_in_screen.dart';
+import 'package:ship_flutter_starter/features/auth/presentation/screens/sign_up_screen.dart';
+import 'package:ship_flutter_starter/features/routing/enums/app_routes_enum.dart';
 
 RouteBase publicRoutes = GoRoute(
   path: '/${PublicRoute.signin.path}',

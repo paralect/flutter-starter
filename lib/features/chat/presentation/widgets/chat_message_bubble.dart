@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../domain/entities/message_entity.dart';
-import '../../data/models/message_model/message_model.dart';
+import 'package:ship_flutter_starter/features/chat/domain/entities/message_entity.dart';
+import 'package:ship_flutter_starter/features/chat/data/models/message_model/message_model.dart';
 
 class ChatMessageBubble extends StatelessWidget {
   final MessageEntity message;

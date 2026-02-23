@@ -1,4 +1,4 @@
-import '../repositories/chat_repository_interface.dart';
+import 'package:ship_flutter_starter/features/chat/domain/repositories/chat_repository_interface.dart';
 
 class DeleteChatUseCase {
   final ChatRepository _repository;

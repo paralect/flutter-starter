@@ -1,9 +1,9 @@
-import '../../../../core/services/auth_service.dart';
-import '../../../../core/services/storage_service.dart';
-import '../../domain/entities/user_entity.dart';
-import '../../domain/repositories/auth_repository.dart';
-import '../interfaces/auth_api_interface.dart';
-import '../models/user_model.dart';
+import 'package:ship_flutter_starter/core/services/auth_service.dart';
+import 'package:ship_flutter_starter/core/services/storage_service.dart';
+import 'package:ship_flutter_starter/features/auth/domain/entities/user_entity.dart';
+import 'package:ship_flutter_starter/features/auth/domain/repositories/auth_repository.dart';
+import 'package:ship_flutter_starter/features/auth/data/interfaces/auth_api_interface.dart';
+import 'package:ship_flutter_starter/features/auth/data/models/user_model.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final AuthApiInterface _api;

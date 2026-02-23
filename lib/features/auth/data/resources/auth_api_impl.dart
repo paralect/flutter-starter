@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
-import '../../../../core/constants/api_constants.dart';
-import '../../../../core/services/api_service.dart';
-import '../interfaces/auth_api_interface.dart';
-import '../models/sign_in_request.dart';
-import '../models/sign_up_request.dart';
-import '../models/user_model.dart';
+import 'package:ship_flutter_starter/core/constants/api_constants.dart';
+import 'package:ship_flutter_starter/core/services/api_service.dart';
+import 'package:ship_flutter_starter/features/auth/data/interfaces/auth_api_interface.dart';
+import 'package:ship_flutter_starter/features/auth/data/models/sign_in_request.dart';
+import 'package:ship_flutter_starter/features/auth/data/models/sign_up_request.dart';
+import 'package:ship_flutter_starter/features/auth/data/models/user_model.dart';
 
 class AuthApiImpl implements AuthApiInterface {
   final ApiService _apiService;

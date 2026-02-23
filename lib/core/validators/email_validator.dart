@@ -1,4 +1,4 @@
-import '../extensions/string_extensions.dart';
+import 'package:ship_flutter_starter/core/extensions/string_extensions.dart';
 
 class EmailValidator {
   static String? validate(String? value) {

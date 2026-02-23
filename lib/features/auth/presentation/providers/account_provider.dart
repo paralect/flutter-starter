@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../../../../core/di/service_locator.dart';
-import '../../../../core/services/storage_service.dart';
-import '../../domain/entities/user_entity.dart';
+import 'package:ship_flutter_starter/core/di/service_locator.dart';
+import 'package:ship_flutter_starter/core/services/storage_service.dart';
+import 'package:ship_flutter_starter/features/auth/domain/entities/user_entity.dart';
 import 'auth_providers.dart';
 
 part 'account_provider.g.dart';

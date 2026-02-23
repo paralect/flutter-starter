@@ -1,8 +1,8 @@
 import 'dart:async';
-import '../entities/chat_entity.dart';
-import '../entities/message_entity.dart';
-import '../../data/models/create_chat_request/create_chat_request.dart';
-import '../../data/models/send_message_request/send_message_request.dart';
+import 'package:ship_flutter_starter/features/chat/domain/entities/chat_entity.dart';
+import 'package:ship_flutter_starter/features/chat/domain/entities/message_entity.dart';
+import 'package:ship_flutter_starter/features/chat/data/models/create_chat_request/create_chat_request.dart';
+import 'package:ship_flutter_starter/features/chat/data/models/send_message_request/send_message_request.dart';
 
 abstract class ChatRepository {
   Future<List<ChatEntity>> getChats();

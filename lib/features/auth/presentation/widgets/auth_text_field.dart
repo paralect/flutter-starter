@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shadcn_flutter/shadcn_flutter.dart' as shadcn;
 
 class AuthTextField extends StatelessWidget {
   final TextEditingController controller;
@@ -22,17 +23,39 @@ class AuthTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: controller,
-      obscureText: obscureText,
-      keyboardType: keyboardType,
+    return FormField<String>(
       validator: validator,
-      enabled: enabled,
-      decoration: InputDecoration(
-        labelText: label,
-        border: const OutlineInputBorder(),
-        suffixIcon: suffixIcon,
-      ),
+      initialValue: '',
+      builder: (FormFieldState<String> state) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            shadcn.TextField(
+              controller: controller,
+              obscureText: obscureText,
+              keyboardType: keyboardType,
+              enabled: enabled,
+              placeholder: Text(label),
+              onChanged: state.didChange,
+              features: [
+                if (obscureText) const shadcn.InputPasswordToggleFeature(),
+                if (suffixIcon != null && !obscureText)
+                  shadcn.InputTrailingFeature(suffixIcon!),
+              ],
+            ),
+            if (state.hasError) ...[
+              const shadcn.Gap(4),
+              Text(
+                state.errorText!,
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.error,
+                  fontSize: 12,
+                ),
+              ),
+            ],
+          ],
+        );
+      },
     );
   }
 }

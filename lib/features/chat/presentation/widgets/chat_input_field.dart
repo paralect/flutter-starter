@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shadcn_flutter/shadcn_flutter.dart' as shadcn;
 
 class ChatInputField extends StatefulWidget {
   final String? initialValue;
@@ -64,52 +65,29 @@ class _ChatInputFieldState extends State<ChatInputField> {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Expanded(
-              child: TextField(
+              child: shadcn.TextField(
                 controller: _controller,
                 focusNode: _focusNode,
                 enabled: !widget.isLoading,
                 maxLines: null,
                 textInputAction: TextInputAction.send,
                 onSubmitted: (_) => _handleSend(),
-                decoration: InputDecoration(
-                  hintText: widget.placeholder ?? 'Type a message...',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(24),
-                    borderSide: BorderSide.none,
-                  ),
-                  filled: true,
-                  fillColor: Theme.of(
-                    context,
-                  ).colorScheme.surfaceContainerHighest,
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 12,
-                  ),
-                ),
+                placeholder: Text(widget.placeholder ?? 'Type a message...'),
               ),
             ),
-            const SizedBox(width: 8),
-            IconButton(
+            const shadcn.Gap(8),
+            shadcn.IconButton.primary(
               onPressed: widget.isLoading ? null : _handleSend,
               icon: widget.isLoading
                   ? SizedBox(
                       width: 20,
                       height: 20,
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2,
-                        valueColor: AlwaysStoppedAnimation<Color>(
-                          Theme.of(context).colorScheme.primary,
-                        ),
-                      ),
+                      child: shadcn.CircularProgressIndicator(size: 20, strokeWidth: 2),
                     )
                   : Icon(
                       Icons.send,
                       color: Theme.of(context).colorScheme.primary,
                     ),
-              style: IconButton.styleFrom(
-                backgroundColor: Theme.of(context).colorScheme.primaryContainer,
-                padding: const EdgeInsets.all(12),
-              ),
             ),
           ],
         ),

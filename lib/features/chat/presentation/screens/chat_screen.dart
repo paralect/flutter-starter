@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:shadcn_flutter/shadcn_flutter.dart' as shadcn;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../providers/chat_messages_provider/chat_messages_provider.dart';
-import '../providers/send_message_provider/send_message_provider.dart';
-import '../widgets/chat_message_bubble.dart';
-import '../widgets/chat_input_field.dart';
-import '../widgets/typing_indicator.dart';
-import '../../../../core/utils/error_handler.dart';
+import 'package:ship_flutter_starter/features/chat/presentation/providers/chat_messages_provider/chat_messages_provider.dart';
+import 'package:ship_flutter_starter/features/chat/presentation/providers/send_message_provider/send_message_provider.dart';
+import 'package:ship_flutter_starter/features/chat/presentation/widgets/chat_message_bubble.dart';
+import 'package:ship_flutter_starter/features/chat/presentation/widgets/chat_input_field.dart';
+import 'package:ship_flutter_starter/features/chat/presentation/widgets/typing_indicator.dart';
+import 'package:ship_flutter_starter/core/utils/error_handler.dart';
 
 class ChatScreen extends ConsumerStatefulWidget {
   final String chatId;
@@ -129,7 +130,8 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
                   },
                 );
               },
-              loading: () => const Center(child: CircularProgressIndicator()),
+              loading: () =>
+                  Center(child: shadcn.CircularProgressIndicator()),
               error: (error, stack) {
                 WidgetsBinding.instance.addPostFrameCallback((_) {
                   ErrorHandler.handleError(context, error);
@@ -149,7 +151,8 @@ class _ChatScreenState extends ConsumerState<ChatScreen> {
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
                       const SizedBox(height: 8),
-                      ElevatedButton(
+                      shadcn.Button(
+                        style: shadcn.ButtonStyle.primary(),
                         onPressed: () {
                           ref
                               .read(

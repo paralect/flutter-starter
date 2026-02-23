@@ -1,6 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../../../domain/entities/message_entity.dart';
-import '../chat_providers/chat_providers.dart';
+import 'package:ship_flutter_starter/features/chat/domain/entities/message_entity.dart';
+import 'package:ship_flutter_starter/features/chat/presentation/providers/chat_providers/chat_providers.dart';
 
 part 'chat_messages_provider.g.dart';
 

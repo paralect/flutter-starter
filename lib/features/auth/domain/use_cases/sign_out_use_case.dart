@@ -1,4 +1,4 @@
-import '../repositories/auth_repository.dart';
+import 'package:ship_flutter_starter/features/auth/domain/repositories/auth_repository.dart';
 
 class SignOutUseCase {
   final AuthRepository _repository;

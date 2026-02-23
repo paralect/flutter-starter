@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import '../../domain/repositories/users_repository.dart';
+import 'package:ship_flutter_starter/features/users/domain/repositories/users_repository.dart';
 import 'user_model.dart';
 
 part 'users_list_response.g.dart';

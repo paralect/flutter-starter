@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../../../domain/entities/message_entity.dart';
-import '../../../data/models/message_model/message_model.dart';
-import '../../../data/models/send_message_request/send_message_request.dart';
-import '../chat_providers/chat_providers.dart';
-import '../chat_messages_provider/chat_messages_provider.dart';
+import 'package:ship_flutter_starter/features/chat/domain/entities/message_entity.dart';
+import 'package:ship_flutter_starter/features/chat/data/models/message_model/message_model.dart';
+import 'package:ship_flutter_starter/features/chat/data/models/send_message_request/send_message_request.dart';
+import 'package:ship_flutter_starter/features/chat/presentation/providers/chat_providers/chat_providers.dart';
+import 'package:ship_flutter_starter/features/chat/presentation/providers/chat_messages_provider/chat_messages_provider.dart';
 
 part 'send_message_provider.g.dart';
 

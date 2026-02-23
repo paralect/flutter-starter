@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shadcn_flutter/shadcn_flutter.dart' as shadcn;
 
 class AuthButton extends StatelessWidget {
   final VoidCallback? onPressed;
@@ -16,22 +17,19 @@ class AuthButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: isLoading ? null : onPressed,
-      style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(vertical: 16),
-        backgroundColor: isSecondary
-            ? Theme.of(context).colorScheme.secondary
-            : Theme.of(context).colorScheme.primary,
-        foregroundColor: isSecondary
-            ? Theme.of(context).colorScheme.onSecondary
-            : Theme.of(context).colorScheme.onPrimary,
-      ),
+    final effectiveOnPressed = isLoading ? null : onPressed;
+    final style = isSecondary
+        ? shadcn.ButtonStyle.secondary()
+        : shadcn.ButtonStyle.primary();
+
+    return shadcn.Button(
+      onPressed: effectiveOnPressed,
+      style: style,
       child: isLoading
-          ? const SizedBox(
+          ? SizedBox(
               height: 20,
               width: 20,
-              child: CircularProgressIndicator(strokeWidth: 2),
+              child: shadcn.CircularProgressIndicator(size: 20, strokeWidth: 2),
             )
           : Text(text),
     );

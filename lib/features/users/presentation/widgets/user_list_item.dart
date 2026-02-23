@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import '../../domain/entities/user_entity.dart';
+import 'package:ship_flutter_starter/features/users/domain/entities/user_entity.dart';
 
 class UserListItem extends StatelessWidget {
   final UserEntity user;

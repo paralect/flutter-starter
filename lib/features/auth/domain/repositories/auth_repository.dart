@@ -1,4 +1,4 @@
-import '../entities/user_entity.dart';
+import 'package:ship_flutter_starter/features/auth/domain/entities/user_entity.dart';
 
 abstract class AuthRepository {
   Future<UserEntity> signIn(String email, String password);

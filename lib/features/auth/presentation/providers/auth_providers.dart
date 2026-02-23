@@ -1,12 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../../../../core/di/service_locator.dart';
-import '../../domain/repositories/auth_repository.dart';
-import '../../domain/use_cases/get_current_user_use_case.dart';
-import '../../domain/use_cases/google_sign_in_use_case.dart';
-import '../../domain/use_cases/sign_in_use_case.dart';
-import '../../domain/use_cases/sign_out_use_case.dart';
-import '../../domain/use_cases/sign_up_use_case.dart';
+import 'package:ship_flutter_starter/core/di/service_locator.dart';
+import 'package:ship_flutter_starter/features/auth/domain/repositories/auth_repository.dart';
+import 'package:ship_flutter_starter/features/auth/domain/use_cases/get_current_user_use_case.dart';
+import 'package:ship_flutter_starter/features/auth/domain/use_cases/google_sign_in_use_case.dart';
+import 'package:ship_flutter_starter/features/auth/domain/use_cases/sign_in_use_case.dart';
+import 'package:ship_flutter_starter/features/auth/domain/use_cases/sign_out_use_case.dart';
+import 'package:ship_flutter_starter/features/auth/domain/use_cases/sign_up_use_case.dart';
 
 part 'auth_providers.g.dart';
 

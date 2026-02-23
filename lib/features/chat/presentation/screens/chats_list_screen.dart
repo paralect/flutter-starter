@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:shadcn_flutter/shadcn_flutter.dart' as shadcn;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import '../providers/chats_list_provider/chats_list_provider.dart';
-import '../widgets/chat_list_item.dart';
-import '../../../../core/utils/error_handler.dart';
+import 'package:ship_flutter_starter/features/chat/presentation/providers/chats_list_provider/chats_list_provider.dart';
+import 'package:ship_flutter_starter/features/chat/presentation/widgets/chat_list_item.dart';
+import 'package:ship_flutter_starter/core/utils/error_handler.dart';
 
 class ChatsListScreen extends ConsumerStatefulWidget {
   const ChatsListScreen({super.key});
@@ -38,16 +39,16 @@ class _ChatsListScreenState extends ConsumerState<ChatsListScreen> {
         title: const Text('Delete Chat'),
         content: const Text('Are you sure you want to delete this chat?'),
         actions: [
-          TextButton(
+          shadcn.GhostButton(
             onPressed: () => Navigator.of(context).pop(false),
             child: const Text('Cancel'),
           ),
-          TextButton(
+          shadcn.GhostButton(
             onPressed: () => Navigator.of(context).pop(true),
-            style: TextButton.styleFrom(
-              foregroundColor: Theme.of(context).colorScheme.error,
+            child: Text(
+              'Delete',
+              style: TextStyle(color: Theme.of(context).colorScheme.error),
             ),
-            child: const Text('Delete'),
           ),
         ],
       ),
@@ -111,10 +112,11 @@ class _ChatsListScreenState extends ConsumerState<ChatsListScreen> {
                     ),
                   ),
                   const SizedBox(height: 24),
-                  ElevatedButton.icon(
+                  shadcn.Button(
+                    style: shadcn.ButtonStyle.primary(),
                     onPressed: _handleCreateChat,
-                    icon: const Icon(Icons.add),
-                    label: const Text('New Chat'),
+                    leading: const Icon(Icons.add),
+                    child: const Text('New Chat'),
                   ),
                 ],
               ),
@@ -140,7 +142,7 @@ class _ChatsListScreenState extends ConsumerState<ChatsListScreen> {
             ),
           );
         },
-        loading: () => const Center(child: CircularProgressIndicator()),
+        loading: () => Center(child: shadcn.CircularProgressIndicator()),
         error: (error, stack) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
             ErrorHandler.handleError(context, error);
@@ -156,7 +158,8 @@ class _ChatsListScreenState extends ConsumerState<ChatsListScreen> {
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
                 const SizedBox(height: 8),
-                ElevatedButton(
+                shadcn.Button(
+                  style: shadcn.ButtonStyle.primary(),
                   onPressed: () {
                     ref.read(chatsListProvider.notifier).refresh();
                   },

@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mix/mix.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../themes/app_theme.dart';
+import 'package:shadcn_flutter/shadcn_flutter.dart';
+
+import 'package:ship_flutter_starter/core/theme/themes/app_theme.dart';
 
 part 'theme_provider.g.dart';
 
@@ -21,23 +21,13 @@ class AppThemeMode extends _$AppThemeMode {
 }
 
 @riverpod
-Map<ColorToken, Color> appColors(Ref ref) {
+ThemeData appTheme(Ref ref) {
   final isDark = ref.watch(appThemeModeProvider);
-  return isDark ? AppTheme.darkColors : AppTheme.lightColors;
+  return isDark ? AppTheme.dark : AppTheme.light;
 }
 
 @riverpod
-Map<TextStyleToken, TextStyle> appTextStyles(Ref ref) {
+ThemeMode appThemeModeValue(Ref ref) {
   final isDark = ref.watch(appThemeModeProvider);
-  return isDark ? AppTheme.darkTextStyles : AppTheme.lightTextStyles;
-}
-
-@riverpod
-Map<RadiusToken, Radius> appRadii(Ref ref) {
-  return AppTheme.radii;
-}
-
-@riverpod
-Map<SpaceToken, double> appSpaces(Ref ref) {
-  return AppTheme.spaces;
+  return isDark ? ThemeMode.dark : ThemeMode.light;
 }

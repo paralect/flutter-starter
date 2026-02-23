@@ -1,5 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../../domain/entities/user_entity.dart';
+import 'package:ship_flutter_starter/features/auth/domain/entities/user_entity.dart';
 import 'auth_providers.dart';
 
 part 'google_sign_in_provider.g.dart';

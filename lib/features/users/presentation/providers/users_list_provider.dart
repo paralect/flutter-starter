@@ -1,5 +1,5 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../../domain/repositories/users_repository.dart';
+import 'package:ship_flutter_starter/features/users/domain/repositories/users_repository.dart';
 import 'users_providers.dart';
 
 part 'users_list_provider.g.dart';

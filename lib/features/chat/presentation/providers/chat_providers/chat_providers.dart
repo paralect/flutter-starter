@@ -1,12 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import '../../../../../core/di/service_locator.dart';
-import '../../../domain/repositories/chat_repository_interface.dart';
-import '../../../domain/use_cases/create_chat_use_case.dart';
-import '../../../domain/use_cases/delete_chat_use_case.dart';
-import '../../../domain/use_cases/get_chats_use_case.dart';
-import '../../../domain/use_cases/get_messages_use_case.dart';
-import '../../../domain/use_cases/send_message_use_case.dart';
+import 'package:ship_flutter_starter/core/di/service_locator.dart';
+import 'package:ship_flutter_starter/features/chat/domain/repositories/chat_repository_interface.dart';
+import 'package:ship_flutter_starter/features/chat/domain/use_cases/create_chat_use_case.dart';
+import 'package:ship_flutter_starter/features/chat/domain/use_cases/delete_chat_use_case.dart';
+import 'package:ship_flutter_starter/features/chat/domain/use_cases/get_chats_use_case.dart';
+import 'package:ship_flutter_starter/features/chat/domain/use_cases/get_messages_use_case.dart';
+import 'package:ship_flutter_starter/features/chat/domain/use_cases/send_message_use_case.dart';
 
 part 'chat_providers.g.dart';
 

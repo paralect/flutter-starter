@@ -1,5 +1,5 @@
-import '../entities/message_entity.dart';
-import '../repositories/chat_repository_interface.dart';
+import 'package:ship_flutter_starter/features/chat/domain/entities/message_entity.dart';
+import 'package:ship_flutter_starter/features/chat/domain/repositories/chat_repository_interface.dart';
 
 class GetMessagesUseCase {
   final ChatRepository _repository;

@@ -3,9 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ship_flutter_starter/core/di/service_locator.dart';
 import 'package:ship_flutter_starter/core/services/api_service.dart';
 import 'package:ship_flutter_starter/core/theme/providers/theme_provider.dart';
-import 'package:ship_flutter_starter/core/theme/tokens/color_tokens.dart';
+import 'package:ship_flutter_starter/core/theme/themes/app_theme.dart';
 import 'package:ship_flutter_starter/features/auth/presentation/providers/account_provider.dart';
 import 'package:ship_flutter_starter/features/routing/app_router.dart';
+import 'package:shadcn_flutter/shadcn_flutter.dart' as shadcn;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,17 +40,18 @@ class _MyAppState extends ConsumerState<MyApp> {
   @override
   Widget build(BuildContext context) {
     final router = ref.watch(appRouterProvider);
-    final colors = ref.watch(appColorsProvider);
+    final themeMode = ref.watch(appThemeModeValueProvider);
 
-    return MaterialApp.router(
-      title: 'Ship Flutter Starter',
-      debugShowCheckedModeBanner: false,
-      routerConfig: router,
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: colors[AppColorTokens.primary.token]!,
-        ),
+    return shadcn.GestureDetector(
+      onTap: () => shadcn.FocusManager.instance.primaryFocus?.unfocus(),
+      behavior: shadcn.HitTestBehavior.translucent,
+      child: shadcn.ShadcnApp.router(
+        title: 'Ship Flutter Starter',
+        debugShowCheckedModeBanner: false,
+        routerConfig: router,
+        theme: AppTheme.light,
+        darkTheme: AppTheme.dark,
+        themeMode: themeMode,
       ),
     );
   }

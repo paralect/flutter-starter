@@ -1,6 +1,6 @@
 import 'dart:async';
-import '../repositories/chat_repository_interface.dart';
-import '../../data/models/send_message_request/send_message_request.dart';
+import 'package:ship_flutter_starter/features/chat/domain/repositories/chat_repository_interface.dart';
+import 'package:ship_flutter_starter/features/chat/data/models/send_message_request/send_message_request.dart';
 
 class SendMessageUseCase {
   final ChatRepository _repository;

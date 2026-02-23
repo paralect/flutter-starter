@@ -1,9 +1,9 @@
-import '../../domain/repositories/chat_repository_interface.dart';
-import '../../domain/entities/chat_entity.dart';
-import '../../domain/entities/message_entity.dart';
-import '../interfaces/chat_api_interface.dart';
-import '../models/create_chat_request/create_chat_request.dart';
-import '../models/send_message_request/send_message_request.dart';
+import 'package:ship_flutter_starter/features/chat/domain/repositories/chat_repository_interface.dart';
+import 'package:ship_flutter_starter/features/chat/domain/entities/chat_entity.dart';
+import 'package:ship_flutter_starter/features/chat/domain/entities/message_entity.dart';
+import 'package:ship_flutter_starter/features/chat/data/interfaces/chat_api_interface.dart';
+import 'package:ship_flutter_starter/features/chat/data/models/create_chat_request/create_chat_request.dart';
+import 'package:ship_flutter_starter/features/chat/data/models/send_message_request/send_message_request.dart';
 
 class ChatRepositoryImpl implements ChatRepository {
   final ChatApiInterface _api;

@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import '../constants/api_constants.dart';
+import 'package:ship_flutter_starter/core/constants/api_constants.dart';
 import 'storage_service.dart';
 
 class ApiService {

@@ -1,4 +1,4 @@
-import '../enums/app_environment.dart';
+import 'package:ship_flutter_starter/core/enums/app_environment.dart';
 
 class AppConfig {
   static AppEnvironment _environment = AppEnvironment.development;
