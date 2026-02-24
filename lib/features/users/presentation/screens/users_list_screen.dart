@@ -2,9 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:shadcn_flutter/shadcn_flutter.dart' as shadcn;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:ship_flutter_starter/core/utils/error_handler.dart';
-import 'package:ship_flutter_starter/features/auth/presentation/providers/sign_out_provider.dart';
 import 'package:ship_flutter_starter/features/users/presentation/providers/users_list_provider.dart';
 import 'package:ship_flutter_starter/features/users/presentation/widgets/user_list_item.dart';
 import 'package:ship_flutter_starter/features/users/presentation/widgets/users_list_filters.dart';
@@ -45,10 +43,6 @@ class _UsersListScreenState extends ConsumerState<UsersListScreen> {
     ref.read(usersListProvider.notifier).search(query);
   }
 
-  Future<void> _handleSignOut() async {
-    await ref.read(signOutProvider.notifier).signOut();
-  }
-
   @override
   Widget build(BuildContext context) {
     final usersAsync = ref.watch(usersListProvider);
@@ -56,23 +50,6 @@ class _UsersListScreenState extends ConsumerState<UsersListScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Users'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.chat),
-            onPressed: () => context.go('/chats'),
-            tooltip: 'Chats',
-          ),
-          IconButton(
-            icon: const Icon(Icons.person),
-            onPressed: () => context.go('/profile'),
-            tooltip: 'Profile',
-          ),
-          IconButton(
-            icon: const Icon(Icons.logout),
-            onPressed: _handleSignOut,
-            tooltip: 'Sign Out',
-          ),
-        ],
       ),
       body: RefreshIndicator(
         onRefresh: () async {

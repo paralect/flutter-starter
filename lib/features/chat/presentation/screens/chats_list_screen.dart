@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:shadcn_flutter/shadcn_flutter.dart' as shadcn;
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:ship_flutter_starter/features/chat/presentation/providers/chats_list_provider/chats_list_provider.dart';
 import 'package:ship_flutter_starter/features/chat/presentation/widgets/chat_list_item.dart';
 import 'package:ship_flutter_starter/core/utils/error_handler.dart';
@@ -65,15 +66,11 @@ class _ChatsListScreenState extends ConsumerState<ChatsListScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text('Chats'),
         actions: [
           IconButton(
-            icon: const Icon(Icons.home),
-            onPressed: () => context.go('/'),
-            tooltip: 'Home',
-          ),
-          IconButton(
-            icon: const Icon(Icons.add),
+            icon: const Icon(Iconsax.add),
             onPressed: _handleCreateChat,
             tooltip: 'New Chat',
           ),
@@ -115,7 +112,7 @@ class _ChatsListScreenState extends ConsumerState<ChatsListScreen> {
                   shadcn.Button(
                     style: shadcn.ButtonStyle.primary(),
                     onPressed: _handleCreateChat,
-                    leading: const Icon(Icons.add),
+                    leading: const Icon(Iconsax.add),
                     child: const Text('New Chat'),
                   ),
                 ],
